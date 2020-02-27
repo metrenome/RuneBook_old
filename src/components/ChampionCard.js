@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import { Avatar, Card, CardAction, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     small: {
@@ -11,16 +11,28 @@ const useStyles = makeStyles(theme => ({
       width: theme.spacing(20),
       height: theme.spacing(20),
     },
+    card: {
+      maxWidth: 154,
+      maxHeight: 280
+    },
   }));
 
 const ChampionCard = (props) => {
     const classes = useStyles();
-    
+
     return (
-        <div>
-            <Avatar alt={props.id} src={`./images/${props.image}`} className={classes.large} />
-            {props.name}
-        </div>
+        <Grid item>
+          <Card className={classes.card} variant='outlined'>
+            <CardActionArea>
+              <CardContent align='center'>
+                <CardMedia component='img' alt={props.id} image={`./loading/${props.image}`}/>
+                <Typography variant='button' display='block'>
+                  {props.name}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
      );
 };
 

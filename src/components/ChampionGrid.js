@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
-
 import ChampionCard from './ChampionCard';
-
 
 class ChampionGrid extends React.Component {
     championsList() {
@@ -19,7 +17,11 @@ class ChampionGrid extends React.Component {
     }
     
     render() {
-        return <div>{this.championsList()}</div>;
+        return (
+            <Grid container>
+                {this.championsList()}
+            </Grid>
+        );
     }
 }
 
