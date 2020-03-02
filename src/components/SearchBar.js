@@ -8,40 +8,35 @@ import SearchIcon from '@material-ui/icons/Search';
 import { filterChampions } from '../actions';
 
 const styles = theme => ({
-      textField: {
-        width: '100%',
-        paddingBottom: theme.spacing(2)
-      },
+
   });
 
-class SearchBar extends React.Component {
-  renderChampionSearch() {
+const SearchBar = () => {
+  const renderChampionSearch = () => {
     console.log("clicked");
   }
   
-  render() {
-    return (
-      <Grid container justify='center'>
-        <Grid item xs={6}>
-        <TextField
-          fullWidth={true}
-          id='searchbar'
-          label='Search Champions'
-          variant='outlined'
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position='end'>
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          onChange={(e) => this.props.filterChampions(e.target.value)}
-          onClick={this.renderChampionSearch}
-        />
-        </Grid>
+  return (
+    <Grid container justify='center'>
+      <Grid item xs={6}>
+      <TextField
+        fullWidth={true}
+        id='searchbar'
+        label='Search Champions'
+        variant='outlined'
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+        onChange={(e) => this.props.filterChampions(e.target.value)}
+        onClick={renderChampionSearch}
+      />
       </Grid>
-    );
-  }
+    </Grid>
+  );
 }
 
 const mapStateToProps = (state) => {
