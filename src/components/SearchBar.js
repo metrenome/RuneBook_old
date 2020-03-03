@@ -1,45 +1,64 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import { Box, TextField, InputAdornment } from '@material-ui/core/';
+import { Avatar, Grid, InputAdornment, Paper, TextField  } from '@material-ui/core/';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import SearchIcon from '@material-ui/icons/Search';
 
 import { filterChampions } from '../actions';
+import champions from '../assets/champions';
+const SearchBar = () => {
 
-const styles = theme => ({
-      textField: {
-        width: '100%',
-        paddingBottom: theme.spacing(2)
-      },
-  });
+  const renderSearchList = () => {
+    console.log("search bar focused");
+  }
 
-class SearchBar extends React.Component {
-  render() {
-    const { classes } = this.props;
-    return (
-      <Box>
-        <TextField
-          className={classes.textField}
+  return (
+    <Grid container justify='center'>
+      <Grid item xs={6}>
+        <Autocomplete
           id="searchbar"
-          label="Search Champions"
-          variant="outlined"
+          freeSolo
+          options={champions}
+          getOptionLabel={option => option.name}
+          renderOption={(option) => (
+            <React.Fragment>
+              <Avatar alt={option.name} src={`./images/${option.avatar}`} paddingRight={1} />
+              {option.name}
+            </React.Fragment>
+          )}
+          renderInput={params => (
+            <TextField {...params} label="Search Champions" margin="normal" variant="outlined" />
+          )}
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position='end'>
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        {/* <TextField
+          fullWidth={true}
+          id='searchbar'
+          label='Search Champions'
+          variant='outlined'
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
                 <SearchIcon />
               </InputAdornment>
             ),
           }}
           onChange={(e) => this.props.filterChampions(e.target.value)}
-        />
-      </Box>
-    );
-  }
+          onClick={renderSearchList}
+        /> */}
+      </Grid>
+    </Grid>
+  );
 }
 
 const mapStateToProps = (state) => {
   return { champions: state.champions };
 }
 
-export default compose(withStyles(styles), connect(mapStateToProps, { filterChampions }))(SearchBar);
+export default connect(mapStateToProps, { filterChampions })(SearchBar);

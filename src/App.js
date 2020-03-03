@@ -1,30 +1,40 @@
 import React from 'react';
 import 'typeface-roboto';
-import { Box, CssBaseline, createMuiTheme } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
+import { Box, CssBaseline, Divider, createMuiTheme } from '@material-ui/core';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 
-import SearchBar from './components/SearchBar';
-import ChampionGrid from './components/ChampionGrid';
+import Header from './components/Header';
 
-const darkTheme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     type: 'dark',
   },
-  spacing: 4
+  spacing: 4,
 });
 
-class App extends React.Component {
-  render() {
+const useStyles = makeStyles(theme => ({
+  box: {
+    margin: theme.spacing(1)
+  },
+  divider: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
+  }
+}));
+
+const App = () => {
+  const classes = useStyles();
+
     return (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box paddingTop={darkTheme.spacing(1)} paddingRight={darkTheme.spacing(1)} paddingLeft={darkTheme.spacing(1)} variant="outlined">
-          <SearchBar />
-          <ChampionGrid />
+        <Box className={classes.box}>
+          <Header />
+          <Divider className={classes.divider} />
+          To get started, search for a champion!
         </Box>
       </ThemeProvider>
     );
   }
-}
 
 export default App;
