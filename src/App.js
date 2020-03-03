@@ -28,7 +28,7 @@ const App = () => {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box className={classes.box} variant="outlined">
+        <Box className={classes.box}>
           <Header />
           <Divider className={classes.divider} />
           To get started, search for a champion!
