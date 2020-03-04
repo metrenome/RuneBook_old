@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import history from '../history';
 import { Avatar, Grid, InputAdornment, TextField  } from '@material-ui/core/';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import SearchIcon from '@material-ui/icons/Search';
 
-import { filterChampions } from '../actions';
 import champions from '../assets/champions';
 
 const NavigateToChampion = (event, value) => {
@@ -55,8 +53,4 @@ const SearchBar = () => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return { champions: state.champions };
-}
-
-export default connect(mapStateToProps, { filterChampions })(SearchBar);
+export default SearchBar
