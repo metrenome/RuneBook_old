@@ -2,8 +2,12 @@ import React from 'react';
 import 'typeface-roboto';
 import { Box, CssBaseline, Divider, createMuiTheme } from '@material-ui/core';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from '../history';
 
-import Header from './components/Header';
+import Header from './Header';
+import LandingPage from './LandingPage';
+import ChampionBase from './champions/ChampionBase';
 
 const theme = createMuiTheme({
   palette: {
@@ -28,11 +32,16 @@ const App = () => {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box className={classes.box}>
-          <Header />
-          <Divider className={classes.divider} />
-          To get started, search for a champion!
-        </Box>
+        <Router history={history}>
+          <Box className={classes.box}>
+            <Header />
+            <Divider className={classes.divider} />
+            <Switch>
+                <Route path="/" exact component={LandingPage} />
+                <Route path="/champion/:id" exact component={ChampionBase} />
+            </Switch>
+          </Box>
+        </Router>
       </ThemeProvider>
     );
   }
