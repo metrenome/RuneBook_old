@@ -1,13 +1,14 @@
 import React from 'react';
 import Swiper from 'swiper';
 import 'swiper/css/swiper.min.css';
-import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import history from '../../history';
 import ChampionCard from '../ChampionCard';
 
 class ChampionBase extends React.Component {
   componentDidMount() {
-    var swiper = new Swiper('.swiper-container', {
+    new Swiper('.swiper-container', {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -22,32 +23,38 @@ class ChampionBase extends React.Component {
   }
   
   render() {
-    return (
-      <div className="swiper-container">
-         <div className="swiper-wrapper">
-           <div className="swiper-slide">
-             Slide 1
-             {/* <ChampionCard key={champion.key}
-                name={champion.name} 
-                id={champion.key}
-                image={champion.image}
-              /> */}
-            </div>
-           <div className="swiper-slide">Slide 2</div>
-           <div className="swiper-slide">Slide 3</div>
-           <div className="swiper-slide">Slide 4</div>
-           <div className="swiper-slide">Slide 5</div>
-           <div className="swiper-slide">Slide 6</div>
-           <div className="swiper-slide">Slide 7</div>
-           <div className="swiper-slide">Slide 8</div>
-           <div className="swiper-slide">Slide 9</div>
-           <div className="swiper-slide">Slide 10</div>
-         </div>
-         <div className="swiper-pagination"></div>
-         <div className="swiper-button-prev"></div>
-         <div className="swiper-button-next"></div>
-       </div>
-    );
+    if (!this.props.selectedChampion){
+      history.push('/');
+      return <div>You will be sent back to the home page.</div>
+    } else {
+      const { selectedChampion } = this.props;
+
+      return (
+        <div className="swiper-container">
+          <div className="swiper-wrapper">
+            <div className="swiper-slide">
+              <ChampionCard key={selectedChampion.key}
+                  name={selectedChampion.name} 
+                  id={selectedChampion.key}
+                  image={selectedChampion.banner}
+                />
+              </div>
+            <div className="swiper-slide">Slide 2</div>
+            <div className="swiper-slide">Slide 3</div>
+            <div className="swiper-slide">Slide 4</div>
+            <div className="swiper-slide">Slide 5</div>
+            <div className="swiper-slide">Slide 6</div>
+            <div className="swiper-slide">Slide 7</div>
+            <div className="swiper-slide">Slide 8</div>
+            <div className="swiper-slide">Slide 9</div>
+            <div className="swiper-slide">Slide 10</div>
+          </div>
+          <div className="swiper-pagination"></div>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
+        </div>
+      );
+    }
   }
 }
 // const ChampionBase = () => {
@@ -84,4 +91,8 @@ class ChampionBase extends React.Component {
 //     );
 // };
 
-export default ChampionBase;
+const mapStateToProps = (state) => {
+  return { selectedChampion: state.selectedChampion };
+}
+
+export default connect(mapStateToProps)(ChampionBase);

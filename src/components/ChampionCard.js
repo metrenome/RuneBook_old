@@ -25,7 +25,7 @@ const ChampionCard = (props) => {
           <Card className={classes.card} variant='outlined'>
             <CardActionArea>
               <CardContent align='center'>
-                <CardMedia component='img' alt={props.id} image={`./loading/${props.image}`}/>
+                <CardMedia component='img' alt={props.id} image={`../loading/${props.image}`}/>
                 <Typography variant='button' display='block'>
                   {props.name}
                 </Typography>
