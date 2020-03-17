@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
 
     return (
       <Grid container justify='center'>
-        <Grid item xs={3}>
+        <Grid item xs={6} sm={6}>
           <Autocomplete
             id='searchbar'
             freeSolo
@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
             getOptionLabel={champion => champion.name}
             renderOption={(champion) => (
               <React.Fragment>
-                <Avatar alt={champion.name} src={`./images/${champion.avatar}`} />
+                <Avatar alt={champion.name} src={`/images/icons/${champion.avatar}`} />
                 {champion.name}
               </React.Fragment>
             )}

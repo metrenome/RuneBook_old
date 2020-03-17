@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 import { SELECT_CHAMPION } from '../constants';
 import championsData from '../assets/champions.json';
 

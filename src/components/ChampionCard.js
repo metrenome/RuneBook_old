@@ -21,19 +21,19 @@ const ChampionCard = (props) => {
     const classes = useStyles();
 
     return (
-        <Grid item>
-          <Card className={classes.card} variant='outlined'>
-            <CardActionArea>
-              <CardContent align='center'>
-                <CardMedia component='img' alt={props.id} image={`../loading/${props.image}`}/>
-                <Typography variant='button' display='block'>
-                  {props.name}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-     );
+      <Grid item>
+        <Card className={classes.card} variant='outlined'>
+          <CardActionArea>
+            <CardContent align='center'>
+              <CardMedia component='img' alt={props.id} image={`../loading/${props.image}`}/>
+              <Typography variant='button' display='block'>
+                {props.name}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Grid>
+    );
 };
 
 export default ChampionCard;
