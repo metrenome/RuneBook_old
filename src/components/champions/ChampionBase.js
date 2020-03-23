@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Swiper from 'swiper';
+import React from 'react';
 import 'swiper/css/swiper.min.css';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,8 +15,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     margin: 'auto',
   },
+  gridBase: {
+    flexGrow:1
+  },
   imgBanner: {
-    display: 'block',
     width: 308,
     height: 560,
   },
@@ -37,18 +38,18 @@ const ChampionBase = ({ selectedChampion }) => {
         <Paper className={classes.paper}>
           <ChampionSelectPosition />
           <Button>Search Matchup...</Button>
-          <Grid container spacing={2}>
-            <Grid item>
-              <img className={classes.imgBanner} alt="banner" src={`/images/banners/${selectedChampion.banner}`} />
+          <Grid container spacing={2} wrap='nowrap'>
+            <Grid item xs={6} sm={5} md={4} lg={3} xl={2}>
+              <img className={classes.imgBanner} alt='banner' src={`/images/banners/${selectedChampion.banner}`} />
             </Grid>
-            <Grid item xs={12} sm container direction="column">
-              <Grid item xs container spacing={2}>
+            <Grid className={classes.gridBase} item xs={6} sm={7} md={8} lg={9} xl={10} container spacing={2} direction='column'>
+              <Grid item container spacing={2}>
                 <ChampionSelectSummonerSpells />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs>
                 <ChampionItemBuilds />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs>
                 <ChampionRuneBuilds />
               </Grid>
             </Grid>

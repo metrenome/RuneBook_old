@@ -1,10 +1,48 @@
 import React from 'react';
-import { Grid }from '@material-ui/core/';
+import Swiper from 'swiper';
 
 class ChampionItemBuilds extends React.Component {
+    componentDidMount() {
+        new Swiper('.swiper-container', {
+            autoHeight: true,
+            slidesPerView: 3,
+            spaceBetween: 100,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            freeMode: {
+                freemode: 'true',
+            }
+        });
+    }
+  
     render() {
+        const { selectedChampion } = this.props;
+
         return (
-            <div>ChampionItemBuilds</div>
+            <div className="swiper-container">
+                <div className="swiper-wrapper">
+                    <div className="swiper-slide">
+                        Slide 1
+                    </div>
+                    <div className="swiper-slide">Slide 2</div>
+                    <div className="swiper-slide">Slide 3</div>
+                    <div className="swiper-slide">Slide 4</div>
+                    <div className="swiper-slide">Slide 5</div>
+                    <div className="swiper-slide">Slide 6</div>
+                    <div className="swiper-slide">Slide 7</div>
+                    <div className="swiper-slide">Slide 8</div>
+                    <div className="swiper-slide">Slide 9</div>
+                    <div className="swiper-slide">Slide 10</div>
+                </div>
+                <div className="swiper-pagination"></div>
+                <div className="swiper-button-prev"></div>
+                <div className="swiper-button-next"></div>
+            </div>
         );
     }
 }
