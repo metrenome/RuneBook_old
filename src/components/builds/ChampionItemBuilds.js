@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@material-ui/core/';
 import Swiper from 'swiper';
 
 class ChampionItemBuilds extends React.Component {
@@ -24,24 +25,22 @@ class ChampionItemBuilds extends React.Component {
         const { selectedChampion } = this.props;
 
         return (
-            <div className="swiper-container">
-                <div className="swiper-wrapper">
-                    <div className="swiper-slide">
-                        Slide 1
+            <div className='swiper-root'>
+                <div className='swiper-container'>
+                    <div className='swiper-wrapper'>
+                        <div className='swiper-slide'>
+                            Slide 1
+                        </div>
+                        <div className='swiper-slide'>Slide 2</div>
+                        <div className='swiper-slide'>Slide 3</div>
+                        <div className='swiper-slide'>Slide 4</div>
+                        <div className='swiper-slide'>Slide 5</div>
+                        <div className='swiper-slide'>Slide 6</div>
                     </div>
-                    <div className="swiper-slide">Slide 2</div>
-                    <div className="swiper-slide">Slide 3</div>
-                    <div className="swiper-slide">Slide 4</div>
-                    <div className="swiper-slide">Slide 5</div>
-                    <div className="swiper-slide">Slide 6</div>
-                    <div className="swiper-slide">Slide 7</div>
-                    <div className="swiper-slide">Slide 8</div>
-                    <div className="swiper-slide">Slide 9</div>
-                    <div className="swiper-slide">Slide 10</div>
+                    <div className='swiper-pagination'></div>
+                    {/* <Button className='swiper-button-prev'>←</Button>
+                    <Button className='swiper-button-next'>→</Button>  */}
                 </div>
-                <div className="swiper-pagination"></div>
-                <div className="swiper-button-prev"></div>
-                <div className="swiper-button-next"></div>
             </div>
         );
     }
@@ -83,28 +82,28 @@ export default ChampionItemBuilds;
 //       const { selectedChampion } = this.props;
 
 //       return (
-//         <div className="swiper-container">
-//           <div className="swiper-wrapper">
-//             <div className="swiper-slide">
+//         <div className='swiper-container'>
+//           <div className='swiper-wrapper'>
+//             <div className='swiper-slide'>
 //               <ChampionCard key={selectedChampion.key}
 //                   name={selectedChampion.name} 
 //                   id={selectedChampion.key}
 //                   image={selectedChampion.banner}
 //                 />
 //               </div>
-//             <div className="swiper-slide">Slide 2</div>
-//             <div className="swiper-slide">Slide 3</div>
-//             <div className="swiper-slide">Slide 4</div>
-//             <div className="swiper-slide">Slide 5</div>
-//             <div className="swiper-slide">Slide 6</div>
-//             <div className="swiper-slide">Slide 7</div>
-//             <div className="swiper-slide">Slide 8</div>
-//             <div className="swiper-slide">Slide 9</div>
-//             <div className="swiper-slide">Slide 10</div>
+//             <div className='swiper-slide'>Slide 2</div>
+//             <div className='swiper-slide'>Slide 3</div>
+//             <div className='swiper-slide'>Slide 4</div>
+//             <div className='swiper-slide'>Slide 5</div>
+//             <div className='swiper-slide'>Slide 6</div>
+//             <div className='swiper-slide'>Slide 7</div>
+//             <div className='swiper-slide'>Slide 8</div>
+//             <div className='swiper-slide'>Slide 9</div>
+//             <div className='swiper-slide'>Slide 10</div>
 //           </div>
-//           <div className="swiper-pagination"></div>
-//           <div className="swiper-button-prev"></div>
-//           <div className="swiper-button-next"></div>
+//           <div className='swiper-pagination'></div>
+//           <div className='swiper-button-prev'></div>
+//           <div className='swiper-button-next'></div>
 //         </div>
 //       );
 //     }
@@ -124,22 +123,22 @@ export default ChampionItemBuilds;
 
 // //     console.log(`ChampionBase sees ${id}`);
 // //     return (
-// //       <div class="swiper-container">
-// //         <div class="swiper-wrapper">
-// //           <div class="swiper-slide">Slide 1</div>
-// //           <div class="swiper-slide">Slide 2</div>
-// //           <div class="swiper-slide">Slide 3</div>
-// //           <div class="swiper-slide">Slide 4</div>
-// //           <div class="swiper-slide">Slide 5</div>
-// //           <div class="swiper-slide">Slide 6</div>
-// //           <div class="swiper-slide">Slide 7</div>
-// //           <div class="swiper-slide">Slide 8</div>
-// //           <div class="swiper-slide">Slide 9</div>
-// //           <div class="swiper-slide">Slide 10</div>
+// //       <div class='swiper-container'>
+// //         <div class='swiper-wrapper'>
+// //           <div class='swiper-slide'>Slide 1</div>
+// //           <div class='swiper-slide'>Slide 2</div>
+// //           <div class='swiper-slide'>Slide 3</div>
+// //           <div class='swiper-slide'>Slide 4</div>
+// //           <div class='swiper-slide'>Slide 5</div>
+// //           <div class='swiper-slide'>Slide 6</div>
+// //           <div class='swiper-slide'>Slide 7</div>
+// //           <div class='swiper-slide'>Slide 8</div>
+// //           <div class='swiper-slide'>Slide 9</div>
+// //           <div class='swiper-slide'>Slide 10</div>
 // //         </div>
-// //         <div class="swiper-pagination"></div>
-// //         <div class="swiper-button-prev"></div>
-// //         <div class="swiper-button-next"></div>
+// //         <div class='swiper-pagination'></div>
+// //         <div class='swiper-button-prev'></div>
+// //         <div class='swiper-button-next'></div>
 // //       </div>
 // //     );
 // // };

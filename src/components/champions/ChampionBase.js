@@ -7,8 +7,8 @@ import { Button, Grid, Paper }from '@material-ui/core/';
 import history from '../../history';
 import ChampionSelectPosition from './ChampionSelectPosition';
 import ChampionSelectSummonerSpells from './ChampionSelectSummonerSpells';
-import ChampionItemBuilds from './ChampionItemBuilds';
-import ChampionRuneBuilds from './ChampionRuneBuilds';
+import ChampionItemBuilds from '../builds/ChampionItemBuilds';
+import ChampionRuneBuilds from '../builds/ChampionRuneBuilds';
 
 const useStyles = makeStyles(theme => ({
   paper: {
